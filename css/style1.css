@@ -1,0 +1,54 @@
+*
+{
+    margin:0px;
+}
+header,footer{
+    height:100px;
+    background-color:black;
+    color:white;
+    
+}
+header a{
+    margin-left:100px;
+    font-size:22px;
+    text-decoration:none;
+    background-color:bisque;
+    color:black;
+    width:200px;
+    height:30px;
+    font-weight: 600;
+    text-align:center;
+    display:inline-block;
+    top:10px;
+    position:relative;
+}
+section
+{
+    height:500px;
+    background-color:rgb(214, 172, 157);
+    
+
+}
+
+
+ 
+input[type="text"]
+{   width:350px;
+    height:35px;
+    line-height:5px;
+    border-radius:5px;
+}
+input[type="submit"]
+{
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    margin: 22px 20px;
+    background-color:peachpuff;
+    color:black;
+    border-radius:8px;
+    cursor: pointer;
+
+}
+
+    

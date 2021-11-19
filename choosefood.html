@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Food</title>
+    <link rel="stylesheet" href="css/style3.css" type=text/css>
+    
+</head>
+<body>
+    <div id="headings">
+        
+        <header>
+             <a href="index.html">Back </a>
+         </header>
+         <h2><u>Snack Attack</u></h2>
+    </div>
+    <form action="pdf.php" method="POST">
+<div class="container-fluid">
+    <div class="container">
+        <div class="part1">
+            <fieldset>
+                <legend>Personal Information</legend>
+                Full Name: <input type="text" id="name" name="fullname"> <br/>
+
+                Your Email: <input type="text" id="email" name="emailaddress">
+            </fieldset>
+        </div>
+
+
+        <div class="part2">
+            <fieldset>
+                <legend>Your Orders</legend>
+                Sandwiches (Rs. 20): <input type="text" id="sandwiches" name="sandwiches"> <br/>
+                Pizza(Rs. 70): <input type="text" id="pizza" name="pizza"><br/>
+                Momos (Rs. 40): <input type="text" id="momos" name="momos"><br/>
+                Burger (Rs. 50): <input type="text" id="burger" name="burger"><br/>
+                Coke (Rs. 30): <input type="text" id="coke" name="coke"><br/>
+            </fieldset>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <fieldset>
+            <legend>Your Bill</legend>
+            <h3>Your Name:<span id="name2"></span></h3>
+            <h3>Email: <span id="email2"></span></h3>
+            <table border="1" >
+                <thead>
+                    <tr><th>Menu</th><th>Price</th><th>Quantity</th><th>Amount</th></tr>
+                </thead>
+                <tbody id="bill">
+                </tbody>
+
+                
+
+            </table>
+            </fieldset>
+            <h1>Total Amount: Rs. <span id="amount"></span></h1>
+		<!--	<input type="text"  name="totalamount"/> -->
+            <input type="submit" name="submit" id="button1" value="Generate pdf" />
+            
+    </div>
+</div>
+</form>
+<script>
+var sandwiches = 20, pizza = 70, momos= 40,burger = 50,coke = 30;
+var sandwiches_q=0, pizza_q=0, momos_q=0, burger_q=0,coke_q=0;
+var name = "", email="";
+var sandwichesBill="",pizzaBill="",momosBill="",burgerBill="",cokeBill="";
+var amount=0;
+document.getElementById("name").addEventListener("keyup",function(){
+    // name = document.getElementById("name").value;
+    
+    document.getElementById("name2").innerHTML=this.value;
+});
+
+document.getElementById("email").addEventListener("keyup",function(){
+    // name = document.getElementById("name").value;
+    
+    document.getElementById("email2").innerHTML=this.value;
+});
+
+
+
+document.getElementById("sandwiches").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    sandwichesBill="";
+    sandwiches_q=0;
+    showBill();
+}else{
+    sandwiches_q=this.value;
+    sandwichesBill="<tr><td>Sandwiches</td><td>Rs. "+sandwiches+"</td><td>"+sandwiches_q+"</td><td>"+sandwiches+"x"+sandwiches_q+" = "+sandwiches*sandwiches_q+"</td></tr>";
+    showBill();
+
+}
+});
+
+document.getElementById("pizza").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    pizzaBill="";
+    pizza_q=0;
+    showBill();
+
+}else{
+    pizza_q=this.value;
+    pizzaBill="<tr><td>Pizza</td><td>Rs. "+pizza+"</td><td>"+pizza_q+"</td><td>"+pizza+"x"+pizza_q+" = "+pizza*pizza_q+"</td></tr>";
+    showBill();
+}
+});
+
+document.getElementById("momos").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    momosBill="";
+    momos_q=0;
+    showBill();
+
+}else{
+    momos_q=this.value;
+    momosBill="<tr><td>Momos</td><td>Rs. "+momos+"</td><td>"+momos_q+"</td><td>"+momos+"x"+momos_q+" = "+momos*momos_q+"</td></tr>";
+    showBill();
+}
+});
+
+document.getElementById("burger").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    burgerBill="";
+    burger_q=0;
+    showBill();
+
+}else{
+    burger_q=this.value;
+    burgerBill="<tr><td>Burger</td><td>Rs. "+burger+"</td><td>"+burger_q+"</td><td>"+burger+"x"+burger_q+" = "+burger*burger_q+"</td></tr>";
+    showBill();
+}
+});
+
+document.getElementById("coke").addEventListener("keyup",function(){
+if(this.value==""||this.value==0){
+    cokeBill="";
+    coke_q=0;
+    showBill();
+
+}else{
+    coke_q=this.value;
+    cokeBill="<tr><td>Coke</td><td>Rs. "+coke+"</td><td>"+coke_q+"</td><td>"+coke+"x"+coke_q+" = "+coke*coke_q+"</td></tr>";
+    showBill();
+}
+});
+
+
+function showBill(){
+    document.getElementById("bill").innerHTML=sandwichesBill+pizzaBill+momosBill+burgerBill+cokeBill; //table statement
+    document.getElementById("amount").innerHTML = sandwiches*sandwiches_q + pizza*pizza_q + momos*momos_q + burger*burger_q + coke*coke_q; // total amount
+}
+</script>
+    
+
+</body>
+</html>
